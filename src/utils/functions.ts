@@ -1,5 +1,5 @@
 /*
- *  Copyright (c) Michael Kolesidis <michael.kolesidis@gmail.com>
+ *  Copyright (c) Alexis Fiolleau <fiolleaua@gmail.com>
  *  GNU Affero General Public License v3.0
  *
  *  ATTENTION! FREE SOFTWARE
@@ -54,7 +54,7 @@ export const disableRightClick = (): void => {
 
 // Animate page title with a scrolling effect
 export const animateTitle = (): void => {
-  const message = 'Michael Kolesidis';
+  const message = 'Alexis Fiolleau';
   let position = 0;
   let forward = true;
 
@@ -141,7 +141,7 @@ viewBox="0 0 55 55" style="enable-background:new 0 0 50 50;" xml:space="preserve
   );
 
   console.log(
-    `%cDev by Michael Kolesidis https://michaelkolesidis.com`,
+    `%cDev by Alexis Fiolleau https://michaelkolesidis.com`,
     'color:#fff;font-size:16px; padding:0.45rem 0.75rem; margin: 0.3rem auto 1.3rem auto; font-family: Metropolis, Helvetica, sans-serif; border: 2px solid #0dd8d8; border-radius: 4px; font-weight: 500; background-size: cover;background-repeat: no-repeat;border: double 4px transparent;background-image: linear-gradient(#000, #122), radial-gradient(circle at top left, #ffc900,rgb(255, 151, 234));background-origin: border-box;background-clip: padding-box, border-box;'
   );
 };

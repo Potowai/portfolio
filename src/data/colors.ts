@@ -1,5 +1,5 @@
 /*
- *  Copyright (c) Michael Kolesidis <michael.kolesidis@gmail.com>
+ *  Copyright (c) Alexis Fiolleau <fiolleaua@gmail.com>
  *  GNU Affero General Public License v3.0
  *
  *  ATTENTION! FREE SOFTWARE
@@ -25,28 +25,28 @@ export interface Color {
 // The color palette used throughout the website
 export const colors: Color[] = [
   {
-    name: `pink`,
-    hex: `#ff90e8`,
-    rgb: `255, 144, 232`,
+    name: `blue-jeans`,
+    hex: `#5EB9E6`,
+    rgb: `94, 185, 230`,
   },
   {
-    name: `yellow`,
-    hex: `#ffc900`,
-    rgb: `255, 201, 0`,
+    name: `sasquatch-socks`,
+    hex: `#FA397A`,
+    rgb: `250, 57, 122`,
   },
   {
-    name: `orange`,
-    hex: `#ff7051`,
-    rgb: `255, 112, 81`,
+    name: `rajah`,
+    hex: `#FFA65D`,
+    rgb: `255, 166, 93`,
   },
   {
-    name: `green`,
-    hex: `#3ecfc1`,
-    rgb: `62, 207, 193`,
+    name: `corn`,
+    hex: `#F9E561`,
+    rgb: `249, 229, 97`,
   },
   {
-    name: `purple`,
-    hex: `#90a8ed`,
-    rgb: `144, 168, 237`,
+    name: `eucalyptus`,
+    hex: `#53D0B1`,
+    rgb: `83, 208, 177`,
   },
 ] as const satisfies Color[];

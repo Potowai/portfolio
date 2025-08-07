@@ -1,5 +1,5 @@
 /*
- *  Copyright (c) Michael Kolesidis <michael.kolesidis@gmail.com>
+ *  Copyright (c) Alexis Fiolleau <fiolleaua@gmail.com>
  *  GNU Affero General Public License v3.0
  *
  *  ATTENTION! FREE SOFTWARE
@@ -26,8 +26,6 @@ export default function body() {
           <section id="projects" class="section"></section>
           <section id="contact" class="section"></section>
           <section id="about" class="section"></section>
-          <section id="awards" class="section"></section>
-          <section id="this-website" class="section"></section>
         </div>
     </main>
     <footer id="footer"></footer>

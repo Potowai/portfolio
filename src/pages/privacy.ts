@@ -1,6 +1,6 @@
 document.body.innerHTML = /* html */ `
 <header>
-<a href="/">Michael Kolesidis</a>
+<a href="/">Alexis Fiolleau</a>
 </header>
 
 <main>
@@ -15,7 +15,7 @@ document.body.innerHTML = /* html */ `
 </h2>
 
 <p>
-  Please note that Michael Kolesidis reserves the right to modify this
+  Please note that Alexis Fiolleau reserves the right to modify this
   Privacy Policy at any time and for any reason, without prior notice. The
   owner will keep you informed of any changes by updating the 'Last
   Updated' date of this Privacy Policy.
@@ -39,7 +39,7 @@ document.body.innerHTML = /* html */ `
 
 <h3>Data Protection</h3>
 <p>
-  Personal data are processed by Michael Kolesidis only to the extent
+  Personal data are processed by Alexis Fiolleau only to the extent
   necessary and for the purpose of providing a functional and
   user-friendly website, including its contents and the services offered
   there.
@@ -79,10 +79,10 @@ document.body.innerHTML = /* html */ `
   (GDPR), other data protection laws applicable in Member states of the
   European Union and other provisions related to data protection is:
 </p>
-<p>Mr. Michael Kolesidis</p>
+<p>Mr. Alexis Fiolleau</p>
 <p>Address Aiolias 31, Thessaloniki 55132, Greece</p>
 <p>Phone +30 6976941600</p>
-<p>Email michael.kolesidis@gmail.com</p>
+<p>Email fiolleaua@gmail.com</p>
 <p>Website michaelkolesidis.com</p>
 
 <h3>2. Rights of Users and Data Subjects</h3>
@@ -256,7 +256,7 @@ document.body.innerHTML = /* html */ `
   privacy of your information.
 </p>
 <p>
-  Michael Kolesidis is not responsible for the content or privacy and
+  Alexis Fiolleau is not responsible for the content or privacy and
   security practices and policies of any third parties, including other
   websites, services or applications that may be linked to or from the
   website.

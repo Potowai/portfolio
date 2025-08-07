@@ -1,5 +1,5 @@
 /*
- *  Copyright (c) Michael Kolesidis <michael.kolesidis@gmail.com>
+ *  Copyright (c) Alexis Fiolleau <fiolleaua@gmail.com>
  *  GNU Affero General Public License v3.0
  *
  *  ATTENTION! FREE SOFTWARE
@@ -39,7 +39,7 @@ export default function header() {
   // Name
   const name = document.createElement('div');
   name.setAttribute('id', 'name');
-  name.innerHTML = /* html */ `Michael Kolesidi<span id="falling-letter">s</span>`;
+  name.innerHTML = /* html */ `Alexis Fiollea<span id="falling-letter">u</span>`;
 
   document.addEventListener('DOMContentLoaded', () => {
     const fallingLetter = document.getElementById('falling-letter');
@@ -54,10 +54,10 @@ export default function header() {
   window.addEventListener('scroll', function () {
     if (window.scrollY >= 30) {
       name.classList.add('scrolled');
-      name.innerHTML = /* html */ `Michael Kolesidis`;
+      name.innerHTML = /* html */ `Alexis Fiolleau`;
     } else {
       name.classList.remove('scrolled');
-      name.innerHTML = /* html */ `Michael Kolesidi<span id="falling-letter">s</span>`;
+      name.innerHTML = /* html */ `Alexis Fiollea<span id="falling-letter">u</span>`;
 
       const fallingLetter = document.getElementById('falling-letter');
 
@@ -74,7 +74,7 @@ export default function header() {
   // Smiley
   const smiley = document.createElement('div');
   smiley.setAttribute('id', 'smiley');
-  smiley.innerHTML = `<img alt="Smiley" src="../../assets/smiley-melting.svg" />`;
+  smiley.innerHTML = `<img alt="Smiley" src="../../assets/ducky.png" />`;
   header.appendChild(smiley);
 
   smiley.addEventListener('click', () => {
@@ -551,34 +551,6 @@ export default function header() {
   topGap.style.color = `white`;
   header.appendChild(topGap);
 
-  // Message Box
-  const messageBox = document.createElement('div');
-  messageBox.setAttribute('id', 'box');
-
-  const content = document.createElement('div');
-  content.classList.add('content');
-  content.innerHTML = /* html */ `
-        <p>DESIGN AWARD</p>
-        <p>One Page Love</p>
-        <p>February 2023</p>`;
-  messageBox.appendChild(content);
-
-  dragElement(messageBox);
-  messageBox.style.zIndex = windowManager.base;
-  messageBox.addEventListener('mousedown', () => {
-    messageBox.style.zIndex = windowManager.moveOnTop();
-  });
-
-  // Remove button (message box)
-  const closeButton = document.createElement('button');
-  closeButton.classList.add('remove-button');
-  closeButton.textContent = '✕';
-  closeButton.addEventListener('click', () => {
-    messageBox.style.opacity = '0';
-    header.removeChild(messageBox);
-  });
-  messageBox.appendChild(closeButton);
-  header.appendChild(messageBox);
 
   // Sticker
   const sticker = document.createElement('div');
@@ -705,9 +677,8 @@ export default function header() {
       }
     });
 
-    duckPlaceholder.style.background = `rgb(${
-      generateNewColor(colors, duckPlaceholder, 'background').rgb
-    })`;
+    duckPlaceholder.style.background = `rgb(${generateNewColor(colors, duckPlaceholder, 'background').rgb
+      })`;
 
     duckPlaceholder.addEventListener('click', () => {
       if (duckClicked) {
@@ -715,9 +686,8 @@ export default function header() {
         return; // Skip this click because it came from the duck
       }
 
-      duckPlaceholder.style.background = `rgb(${
-        generateNewColor(colors, duckPlaceholder, 'background').rgb
-      })`;
+      duckPlaceholder.style.background = `rgb(${generateNewColor(colors, duckPlaceholder, 'background').rgb
+        })`;
     });
   }
 

@@ -38,32 +38,6 @@ These aren’t just gimmicks. They’re carefully crafted microinteractions, whe
 
 Due to the website’s colorful design and animations, it may be challenging for users with disabilities to navigate. To improve accessibility, I’ve also created a minimal version, available via the footer link, which points to [michaelkolesidis.com/minimal](https://michaelkolesidis.com/minimal).
 
-## 🏆 Awards
-
-### ★ DESIGN AWARD
-
-**[One Page Love](https://onepagelove.com/michael-kolesidis)**
-
-_February 2023_
-
-Awarded by One Page Love, a One Page website design gallery showcasing the best Single Page websites, templates and resources.
-
-### ★ STAR AWARD
-
-**[CSS Winner](https://www.csswinner.com/details/michael-kolesidis/16936)**
-
-_February 2023_
-
-Awarded by CSS Winner, a unique global platform awarding and showcasing the best websites and promoting innovative web designers, developers and agencies.
-
-### ★ SITE OF THE DAY
-
-**[Best CSS](https://www.bestcss.in/user/detail/michaelkolesidiscom-34682)**
-
-_March 2023_
-
-Awarded by Best CSS, a web platform that discovers, recognizes and promotes the talent and effort of web designers, developers and agencies who create unique digital experiences that are useful, innovative, intuitive and beautiful.
-
 ## 📦 Dependencies
 
 In addition to the tools and technologies mentioned above, this project integrates a custom npm module I created, which handles window layering (bringing windows to the front on click) and drag-and-drop functionality for window movement.
@@ -160,7 +134,7 @@ Thank you for your interest in my project! If you'd like to go further and suppo
 
 <a href="https://www.gnu.org/licenses/agpl-3.0.html"><img src="./public/assets/icons/agplv3.svg" height="80px" /></a>
 
-Copyright (c) Michael Kolesidis  
+Copyright (c) Alexis Fiolleau  
 The code is licensed under the [GNU Affero General Public License v3.0](https://www.gnu.org/licenses/agpl-3.0.html).  
 
 <a href="https://creativecommons.org/licenses/by-sa/4.0/"><img src="./public/assets/icons/creative-commons.svg" height="80px" /></a>

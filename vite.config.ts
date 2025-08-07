@@ -22,5 +22,13 @@ export default defineConfig({
       '@': resolve(__dirname, 'src'),
     },
   },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        quietDeps: true, // Suppress deprecation warnings
+        silenceDeprecations: ['import'], // Specifically silence @import warnings
+      },
+    },
+  },
   plugins: [react()],
 });

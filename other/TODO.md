@@ -8,5 +8,4 @@
 
 ## 🚫 Won’t Do
 
-- Open the One Page Love award in a separate window
 - Refactor components: use absolute/relative positioning and place them in their appropriate sections

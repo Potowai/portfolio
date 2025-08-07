@@ -1,5 +1,5 @@
 /*
- *  Copyright (c) Michael Kolesidis <michael.kolesidis@gmail.com>
+ *  Copyright (c) Your Name <fiolleaua@gmail>
  *  GNU Affero General Public License v3.0
  *
  *  ATTENTION! FREE SOFTWARE
@@ -25,27 +25,32 @@ export const socialList: Social[] = [
   {
     name: 'LinkedIn',
     filename: 'linkedin',
-    url: 'https://www.linkedin.com/in/michaelkolesidis/',
-  },
-  {
-    name: 'Mastodon',
-    filename: 'mastodon',
-    url: 'https://mastodon.social/@michaelkolesidis',
-  },
-  {
-    name: 'Bluesky',
-    filename: 'bluesky',
-    url: 'https://bsky.app/profile/michaelkolesidis.bsky.social',
-  },
-  {
-    name: 'Instagram',
-    filename: 'instagram',
-    url: 'https://www.instagram.com/michaelkolesidis',
+    url: 'https://www.linkedin.com/in/yourusername/',
   },
   {
     name: 'GitHub',
     filename: 'github',
-    url: 'https://github.com/michaelkolesidis',
+    url: 'https://github.com/yourusername',
   },
-  { name: 'Twitter', filename: 'twitter', url: 'https://x.com/michael_kol_' },
+  {
+    name: 'Twitter',
+    filename: 'twitter',
+    url: 'https://x.com/yourusername',
+  },
+  {
+    name: 'Instagram',
+    filename: 'instagram',
+    url: 'https://www.instagram.com/yourusername',
+  },
+  // Add or remove social platforms as needed
+  // {
+  //   name: 'Mastodon',
+  //   filename: 'mastodon',
+  //   url: 'https://mastodon.social/@yourusername',
+  // },
+  // {
+  //   name: 'Bluesky',
+  //   filename: 'bluesky',
+  //   url: 'https://bsky.app/profile/yourusername.bsky.social',
+  // },
 ];

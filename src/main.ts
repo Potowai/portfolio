@@ -1,5 +1,5 @@
 /*
- *  Copyright (c) Michael Kolesidis <michael.kolesidis@gmail.com>
+ *  Copyright (c) Your Name <fiolleaua@gmail>
  *  GNU Affero General Public License v3.0
  *
  *  ATTENTION! FREE SOFTWARE
@@ -22,8 +22,8 @@ import intro from './sections/intro/Intro.js';
 import projects from './sections/projects/Projects.js';
 import contact from './sections/contact/Contact.js';
 import about from './sections/about/About.js';
-import awards from './sections/awards/Awards.js';
-import thisWebsite from './sections/this-website/ThisWebsite.js';
+
+
 import footer from './sections/footer/Footer.js';
 import topButton from './components/buttons/TopButton.js';
 import {
@@ -41,8 +41,6 @@ intro();
 projects();
 contact();
 about();
-awards();
-thisWebsite();
 footer();
 topButton();
 

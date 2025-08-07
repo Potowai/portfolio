@@ -1,5 +1,5 @@
 /*
- *  Copyright (c) Michael Kolesidis <michael.kolesidis@gmail.com>
+ *  Copyright (c) Alexis Fiolleau <fiolleaua@gmail.com>
  *  GNU Affero General Public License v3.0
  *
  *  ATTENTION! FREE SOFTWARE
@@ -54,7 +54,7 @@ export default function footer() {
   // Copyright
   const copyright = document.createElement('p');
   copyright.id = 'copyright';
-  copyright.textContent = '© Michael Kolesidis';
+  copyright.textContent = '© Alexis Fiolleau';
   footer.appendChild(copyright);
 
   // Desktop prompt (mobile view)
