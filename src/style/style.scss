@@ -196,3 +196,35 @@ body::-webkit-scrollbar-thumb {
   background-color: $black;
   outline: $border;
 }
+
+/********** Custom Inverted Cursors **********/
+/* Hide default cursors when custom cursor system is active */
+body.custom-cursor-enabled {
+  cursor: none !important;
+}
+
+body.custom-cursor-enabled * {
+  cursor: none !important;
+}
+
+/* Custom cursor styles for better visibility */
+.custom-cursor {
+  position: fixed !important;
+  pointer-events: none !important;
+  z-index: 99999 !important;
+  mix-blend-mode: difference;
+  user-select: none;
+  
+  /* Fallback styles if mix-blend-mode doesn't work */
+  &.custom-cursor-dot {
+    background-color: #ff0000 !important; /* Temporary red for testing */
+  }
+  
+  &.custom-cursor-pointer {
+    border-bottom-color: #ff0000 !important; /* Temporary red for testing */
+  }
+  
+  &.custom-cursor-grab {
+    background-color: #ff0000 !important; /* Temporary red for testing */
+  }
+}

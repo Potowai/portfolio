@@ -1,5 +1,5 @@
 /*
- *  Copyright (c) Your Name <fiolleaua@gmail>
+ *  Copyright (c) Alexis Fiolleau <fiolleaua@gmail.com>
  *  GNU Affero General Public License v3.0
  *
  *  ATTENTION! FREE SOFTWARE

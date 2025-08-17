@@ -1,5 +1,5 @@
 /*
- *  Copyright (c) Your Name <fiolleaua@gmail>
+ *  Copyright (c) Alexis Fiolleau <fiolleaua@gmail>
  *  GNU Affero General Public License v3.0
  *
  *  ATTENTION! FREE SOFTWARE
@@ -15,6 +15,7 @@
  */
 
 import './style/style.scss';
+import './utils/invertedCursor.js';
 import body from './sections/body/Body.js';
 import ticker from './components/ticker/Ticker.js';
 import header from './sections/header/Header.js';

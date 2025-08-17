@@ -25,7 +25,7 @@ This guide will help you transform this portfolio website from Alexis Fiolleau's
   "name": "your-portfolio.com",
   "url": "https://your-portfolio.com",
   "description": "My creative portfolio website",
-  "author": "Your Name",
+  "author": "Alexis Fiolleau",
   "email": "fiolleaua@gmail",
   "repository": "https://github.com/yourusername/your-portfolio.git",
   "homepage": "https://github.com/yourusername/your-portfolio"

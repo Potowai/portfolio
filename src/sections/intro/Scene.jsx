@@ -15,13 +15,18 @@
  */
 
 import { useState, useRef, useEffect } from 'react';
-import { Canvas } from '@react-three/fiber';
+import { Canvas, useFrame } from '@react-three/fiber';
 import { Float } from '@react-three/drei';
 import { Duck } from './Duck';
 
 export default function Scene() {
   const duck = useRef();
   const [ambientOn, setAmbientOn] = useState(false);
+  const duckRotation = [
+    (234 * Math.PI) / 180, // Convert default degrees to radians
+    (-15 * Math.PI) / 180,
+    (32 * Math.PI) / 180
+  ];
 
   const toggleAmbientLight = () => {
     setAmbientOn((prev) => !prev);
@@ -75,6 +80,7 @@ export default function Scene() {
           ref={duck}
           scale={[duckScale, duckScale, duckScale]}
           onToggleLight={toggleAmbientLight}
+          duckRotation={duckRotation}
         />
       </Float>
     </Canvas>

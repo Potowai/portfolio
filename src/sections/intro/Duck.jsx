@@ -14,77 +14,44 @@
  *  https://www.gnu.org/licenses/agpl-3.0.html
  */
 
-import { useRef, forwardRef, useEffect, useMemo, useState } from 'react';
+import { useRef, forwardRef, useEffect, useState } from 'react';
+import { useGLTF } from '@react-three/drei';
 import { useFrame } from '@react-three/fiber';
-import { useGLTF, Outlines } from '@react-three/drei';
-import * as THREE from 'three';
 import variables from '../../style/variables.module.scss';
 
-export const Duck = forwardRef(({ onToggleLight, ...props }, ref) => {
-  const { nodes, materials } = useGLTF('/assets/3d-models/duck.glb');
+export const Duck = forwardRef(({ onToggleLight, duckRotation = [0, 0, 0], ...props }, ref) => {
+  const { nodes, materials } = useGLTF('/assets/3d-models/rubber_duck.glb');
   const duck = useRef();
-  const [useToon, setUseToon] = useState(false);
   const [hovered, setHovered] = useState(false);
+  const [isSpinning, setIsSpinning] = useState(false);
   const { cursor, pointer } = variables;
+
+  // Add slow Z-axis spinning animation and fast X-axis spin on click
+  useFrame((state, delta) => {
+    if (duck.current) {
+      duck.current.rotation.z += delta * 0.2; // Slow spin speed (0.2 radians per second)
+      
+      // Fast X-axis spin when clicked
+      if (isSpinning) {
+        duck.current.rotation.x += delta * 8; // Fast spin speed (8 radians per second)
+      }
+    }
+  });
 
   useEffect(() => {
     document.body.style.cursor = hovered ? pointer : cursor;
   }, [hovered]);
 
-  // Smooth camera-follow rotation
-  useFrame((state, delta) => {
-    const targetY = -(state.pointer.x * Math.PI) / 10;
-    const targetX = (state.pointer.y * Math.PI) / 10;
-    const lambda = 2;
-    duck.current.rotation.y = THREE.MathUtils.damp(
-      duck.current.rotation.y,
-      targetY,
-      lambda,
-      delta
-    );
-    duck.current.rotation.x = THREE.MathUtils.damp(
-      duck.current.rotation.x,
-      targetX,
-      lambda / 2,
-      delta
-    );
-  });
-
-  // Create gradient map
-  const gradientMap = useMemo(() => {
-    const size = 6;
-    const data = new Uint8Array(size * 4);
-    for (let i = 0; i < size; i++) {
-      const shade = Math.round((i / (size - 1)) * 255);
-      data[i * 4 + 0] = shade;
-      data[i * 4 + 1] = shade;
-      data[i * 4 + 2] = shade;
-      data[i * 4 + 3] = 255;
-    }
-    const texture = new THREE.DataTexture(data, size, 1, THREE.RGBAFormat);
-    texture.minFilter = THREE.NearestFilter;
-    texture.magFilter = THREE.NearestFilter;
-    texture.generateMipmaps = false;
-    texture.colorSpace = THREE.SRGBColorSpace;
-    texture.needsUpdate = true;
-    return texture;
-  }, []);
-
-  const toonMaterial = useMemo(() => {
-    return new THREE.MeshToonMaterial({
-      color: materials.Duck.color,
-      map: materials.Duck.map,
-      normalMap: materials.Duck.normalMap,
-      gradientMap,
-      toneMapped: false,
-    });
-  }, [materials.Duck, gradientMap]);
-
   const handleClick = (e) => {
     e.stopPropagation();
 
-    // Toggle materials
-    setUseToon((prev) => !prev);
+    // Start fast X-axis spinning
+    setIsSpinning(true);
+    
+    // Stop spinning after 2 seconds
+    setTimeout(() => {
+      setIsSpinning(false);
+    }, 500);
 
     // Toggle ambient light
     if (onToggleLight) onToggleLight();
@@ -101,33 +68,34 @@ export const Duck = forwardRef(({ onToggleLight, ...props }, ref) => {
   };
 
   return (
-    <group {...props} ref={duck} dispose={null}>
-      <mesh
-        ref={ref}
-        name="duck"
-        geometry={nodes.Node1.geometry}
-        onClick={handleClick}
-        onPointerOver={(e) => {
-          e.stopPropagation();
-          setHovered(true);
-        }}
-        onPointerOut={(e) => {
-          e.stopPropagation();
-          setHovered(false);
-        }}
-        material={useToon ? toonMaterial : undefined}
-      >
-        {!useToon && (
-          <meshStandardMaterial
-            map={materials.Duck.map}
-            color={0xffffff}
-            toneMapped={false}
-          />
-        )}
-        {useToon && <Outlines thickness={1.5} color={0x000000} />}
-      </mesh>
+    <group {...props} ref={duck} dispose={null} scale={[0.01, 0.01, 0.01]} rotation={duckRotation} position={[0, 0, 0]}>
+      {Object.values(nodes).map((node, index) => {
+        if (node.isMesh && node.geometry) {
+          return (
+            <mesh
+              key={index}
+              ref={index === 0 ? ref : null}
+              geometry={node.geometry}
+              material={node.material}
+              onClick={handleClick}
+              onPointerOver={(e) => {
+                e.stopPropagation();
+                setHovered(true);
+              }}
+              onPointerOut={(e) => {
+                e.stopPropagation();
+                setHovered(false);
+              }}
+              position={[0, 0, 0]}
+              rotation={[0, 0, 0]}
+              scale={[1, 1, 1]}
+            />
+          );
+        }
+        return null;
+      })}
     </group>
   );
 });
 
-useGLTF.preload('/assets/3d-models/duck.glb');
+useGLTF.preload('/assets/3d-models/Mallard-duck_by_get3dmodels.glb');
