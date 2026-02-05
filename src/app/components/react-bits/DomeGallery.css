@@ -1,0 +1,106 @@
+.sphere-root {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    --radius: 520px;
+    --viewer-pad: 72px;
+    --circ: calc(var(--radius) * 3.14);
+    --rot-y: calc((360deg / var(--segments-x)) / 2);
+    --rot-x: calc((360deg / var(--segments-y)) / 2);
+    --item-width: calc(var(--circ) / var(--segments-x));
+    --item-height: calc(var(--circ) / var(--segments-y));
+}
+
+.sphere-root * {
+    box-sizing: border-box;
+}
+
+.sphere,
+.item,
+.item__image {
+    transform-style: preserve-3d;
+}
+
+main.sphere-main {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    touch-action: none;
+    user-select: none;
+    -webkit-user-select: none;
+    background: transparent;
+}
+
+.stage {
+    perspective: 2000px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sphere {
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+
+.item {
+    position: absolute;
+    width: var(--item-width);
+    height: var(--item-height);
+    left: calc(var(--item-width) / -2);
+    top: calc(var(--item-height) / -2);
+
+    transform:
+        rotateY(calc(var(--offset-x) * var(--rot-y))) rotateX(calc(var(--offset-y) * var(--rot-x))) translate3d(0, 0, var(--radius));
+}
+
+/*.overlay--blur {
+    backdrop-filter: blur(80px);
+    -webkit-backdrop-filter: blur(80px);
+    mask: radial-gradient(circle at center, transparent 30%, black 80%);
+    z-index: 10;
+}*/
+
+.item__image {
+    position: absolute;
+    inset: 2px;
+    border-radius: var(--tile-radius);
+    overflow: hidden;
+    transition: opacity 0.3s ease-out;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(125, 249, 255, 0.5);
+    /* Electric blue debug border */
+}
+
+.viewer {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 20;
+}
+
+.enlarge {
+    pointer-events: none;
+}
+
+.scrim {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.8);
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+}
+
+[data-enlarging="true"] .scrim {
+    opacity: 1;
+    pointer-events: auto;
+}
