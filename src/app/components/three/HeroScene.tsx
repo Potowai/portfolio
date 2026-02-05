@@ -2,11 +2,23 @@
 
 import { useState, useEffect } from 'react';
 import { Canvas } from '@react-three/fiber';
-import { Float, Environment } from '@react-three/drei';
+import { Float, Environment, useProgress } from '@react-three/drei';
 import { Duck } from './Duck';
 
-export default function HeroScene() {
+interface HeroSceneProps {
+    onLoaded?: () => void;
+}
+
+export default function HeroScene({ onLoaded }: HeroSceneProps) {
     const [ambientOn, setAmbientOn] = useState(false);
+    const { progress } = useProgress();
+
+    // Trigger onLoaded when progress reaches 100
+    useEffect(() => {
+        if (progress === 100 && onLoaded) {
+            onLoaded();
+        }
+    }, [progress, onLoaded]);
 
     // Default responsive scale logic
     const [duckScale, setDuckScale] = useState(0.01); // Micro duck

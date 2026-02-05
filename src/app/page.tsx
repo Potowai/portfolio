@@ -1,3 +1,5 @@
+'use client';
+import { useState, useEffect } from 'react';
 import BentoGrid from './components/grid/BentoGrid';
 import Tile from './components/grid/Tile';
 import HeroScene from './components/three/HeroScene';
@@ -8,10 +10,22 @@ import Aurora from './components/react-bits/Aurora';
 import { textsInto } from './data/texts';
 import InfiniteMenu from './components/react-bits/InfiniteMenu';
 import { projectList } from './data/projects';
+import SplashScreen from './components/ui/SplashScreen';
 
 export default function Home() {
+    const [loadingMenu, setLoadingMenu] = useState(true);
+    const [loadingHero, setLoadingHero] = useState(true);
+    const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+        if (!loadingMenu && !loadingHero) {
+            setIsLoading(false);
+        }
+    }, [loadingMenu, loadingHero]);
+
     return (
         <main className="min-h-screen bg-[#F8F9FA] dark:bg-[#111] text-black dark:text-white font-sans selection:bg-purple-200 dark:selection:bg-purple-900 relative">
+            <SplashScreen isLoading={isLoading} />
             <div className="fixed inset-0 z-0 pointer-events-none">
                 <Aurora colorStops={["#2b00ff", "#00ccff", "#2b00ff"]} speed={0.5} />
             </div>
@@ -22,7 +36,7 @@ export default function Home() {
                         <div className="absolute inset-0 flex items-center justify-center text-gray-400">
                             {/* 3D Scene */}
                             <div className="w-full h-full">
-                                <HeroScene />
+                                <HeroScene onLoaded={() => setLoadingHero(false)} />
                             </div>
                         </div>
                     </Tile>
@@ -95,6 +109,7 @@ export default function Home() {
                                             title: project.name,
                                             description: project.description
                                         }))}
+                                        onLoaded={() => setLoadingMenu(false)}
                                     />
                                 </div>
 

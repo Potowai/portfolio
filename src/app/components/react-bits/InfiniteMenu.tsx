@@ -538,6 +538,7 @@ class InfiniteGridMenu {
     smoothRotationVelocity = 0;
     scaleFactor = 1.0;
     movementActive = false;
+    onLoaded: (() => void) | null = null;
 
     constructor(
         canvas: HTMLCanvasElement,
@@ -545,13 +546,15 @@ class InfiniteGridMenu {
         onActiveItemChange: (index: number) => void,
         onMovementChange: (moving: boolean) => void,
         onInit: ((sketch: InfiniteGridMenu) => void) | null = null,
-        scale = 1.0
+        scale = 1.0,
+        onLoaded: (() => void) | null = null
     ) {
         this.canvas = canvas;
         this.items = items || [];
         this.onActiveItemChange = onActiveItemChange || (() => { });
         this.onMovementChange = onMovementChange || (() => { });
         this.scaleFactor = scale;
+        this.onLoaded = onLoaded;
         this.camera.position[2] = 3 * scale;
         this.init(onInit);
     }
@@ -681,6 +684,10 @@ class InfiniteGridMenu {
             gl.bindTexture(gl.TEXTURE_2D, this.tex);
             gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, canvas);
             gl.generateMipmap(gl.TEXTURE_2D);
+
+            if (this.onLoaded) {
+                this.onLoaded();
+            }
         });
     }
 
@@ -883,9 +890,10 @@ interface InfiniteMenuProps {
         description: string;
     }[];
     scale?: number;
+    onLoaded?: () => void;
 }
 
-export default function InfiniteMenu({ items = [], scale = 1.0 }: InfiniteMenuProps) {
+export default function InfiniteMenu({ items = [], scale = 1.0, onLoaded }: InfiniteMenuProps) {
     const canvasRef = useRef<HTMLCanvasElement>(null);
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const [activeItem, setActiveItem] = useState<any>(null);
@@ -907,7 +915,8 @@ export default function InfiniteMenu({ items = [], scale = 1.0 }: InfiniteMenuPr
                 handleActiveItem,
                 setIsMoving,
                 sk => sk.run(),
-                scale
+                scale,
+                onLoaded
             );
         }
 
@@ -923,7 +932,7 @@ export default function InfiniteMenu({ items = [], scale = 1.0 }: InfiniteMenuPr
         return () => {
             window.removeEventListener('resize', handleResize);
         };
-    }, [items, scale]);
+    }, [items, scale, onLoaded]);
 
     const handleButtonClick = () => {
         if (!activeItem?.link) return;
