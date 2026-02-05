@@ -12,24 +12,47 @@ import InfiniteMenu from './components/react-bits/InfiniteMenu';
 import { projectList } from './data/projects';
 import SplashScreen from './components/ui/SplashScreen';
 
+// Define color palettes (3 colors each)
+const PALETTES = [
+    ["#2b00ff", "#00ccff", "#2b00ff"], // Default Blue/Cyan
+    ["#ff0055", "#ffcc00", "#ff0055"], // Pink/Gold
+    ["#00ff99", "#00ccff", "#00ff99"], // Mint/Cyan
+    ["#7928ca", "#ff0080", "#7928ca"], // Purple/Pink
+    ["#4d4d4d", "#f2f2f2", "#4d4d4d"], // Monochrome
+];
+
 export default function Home() {
     const [loadingMenu, setLoadingMenu] = useState(true);
     const [loadingHero, setLoadingHero] = useState(true);
     const [isLoading, setIsLoading] = useState(true);
 
+    // Aurora Color State
+    const [paletteIndex, setPaletteIndex] = useState(0);
+
+    const handleBackgroundClick = () => {
+        setPaletteIndex((prev) => (prev + 1) % PALETTES.length);
+    };
+
     useEffect(() => {
+        // Randomize the starting palette on client mount
+        setPaletteIndex(Math.floor(Math.random() * PALETTES.length));
+
         if (!loadingMenu && !loadingHero) {
             setIsLoading(false);
         }
     }, [loadingMenu, loadingHero]);
 
     return (
-        <main className="min-h-screen bg-[#F8F9FA] dark:bg-[#111] text-black dark:text-white font-sans selection:bg-purple-200 dark:selection:bg-purple-900 relative">
+        <main
+            onClick={handleBackgroundClick}
+            className="min-h-screen bg-[#F8F9FA] dark:bg-[#111] text-black dark:text-white font-sans selection:bg-purple-200 dark:selection:bg-purple-900 relative cursor-pointer"
+        >
             <SplashScreen isLoading={isLoading} />
             <div className="fixed inset-0 z-0 pointer-events-none">
-                <Aurora colorStops={["#2b00ff", "#00ccff", "#2b00ff"]} speed={0.5} />
+                <Aurora colorStops={PALETTES[paletteIndex]} speed={0.5} />
             </div>
-            <div className="relative z-10">
+            {/* Wrapper allows layout but passes clicks through to background (Tiles are auto) */}
+            <div className="relative z-10 pointer-events-none">
                 <BentoGrid>
                     {/* HERO TILE (Danny Duck) */}
                     <Tile className="md:col-span-2 md:row-span-2 min-h-[300px]" id="hero-tile">

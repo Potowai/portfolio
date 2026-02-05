@@ -16,6 +16,7 @@ export default function Tile({ children, className = '', id }: TileProps) {
         border border-white/20 shadow-sm
         transition-all duration-300 hover:scale-[1.01] hover:shadow-md
         dark:bg-black/30 dark:border-white/10
+        pointer-events-auto
         ${className}
       `}
         >

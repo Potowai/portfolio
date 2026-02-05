@@ -944,7 +944,12 @@ export default function InfiniteMenu({ items = [], scale = 1.0, onLoaded }: Infi
     };
 
     return (
-        <div style={{ position: 'relative', width: '100%', height: '100%' }}>
+        <div
+            style={{ position: 'relative', width: '100%', height: '100%', pointerEvents: 'auto' }}
+            onClick={(e) => e.stopPropagation()}
+            onPointerDown={(e) => e.stopPropagation()}
+            onPointerUp={(e) => e.stopPropagation()}
+        >
             <canvas id="infinite-grid-menu-canvas" ref={canvasRef} />
 
             {activeItem && (
