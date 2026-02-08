@@ -13,6 +13,7 @@ import { projectList } from './data/projects';
 import SplashScreen from './components/ui/SplashScreen';
 
 import HoverImage from './components/ui/HoverImage';
+import EmailCopyButton from './components/ui/EmailCopyButton';
 
 // Define color palettes (3 colors each)
 const PALETTES = [
@@ -113,6 +114,7 @@ export default function Home() {
                             <div className="flex gap-6 text-3xl">
                                 <a href="https://github.com/Potowai" target="_blank" rel="noopener noreferrer" className="hover:text-blue-500 transition-colors"><SiGithub /></a>
                                 <a href="https://www.linkedin.com/in/alexis-fiolleau/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-500 transition-colors"><SiLinkedin /></a>
+                                <EmailCopyButton email="atelier-fiolleau@email.fr" />
                             </div>
                         </div>
                     </Tile>
