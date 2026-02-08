@@ -180,7 +180,7 @@
 
 .logoloop__tooltip {
     position: absolute;
-    bottom: 100%;
+    bottom: 50%;
     left: 50%;
     transform: translateX(-50%) translateY(-4px);
     background-color: rgba(0, 0, 0, 0.9);
@@ -193,7 +193,7 @@
     opacity: 0;
     pointer-events: none;
     transition: all 0.2s ease;
-    z-index: 20;
+    z-index: 99999999;
     margin-bottom: 8px;
     border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);

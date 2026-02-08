@@ -12,6 +12,8 @@ import InfiniteMenu from './components/react-bits/InfiniteMenu';
 import { projectList } from './data/projects';
 import SplashScreen from './components/ui/SplashScreen';
 
+import HoverImage from './components/ui/HoverImage';
+
 // Define color palettes (3 colors each)
 const PALETTES = [
     ["#2b00ff", "#00ccff", "#2b00ff"], // Default Blue/Cyan
@@ -116,14 +118,19 @@ export default function Home() {
                     </Tile>
 
 
-
                     {/* PROJECTS TILE */}
                     <Tile className="md:col-span-4 md:row-span-1 p-0 border-none bg-transparent shadow-none">
                         <div className="p-8 h-full bg-white/50 dark:bg-black/30 backdrop-blur-md rounded-[24px]">
-                            <h2 className="text-2xl font-bold tracking-tight mb-4">Recent Work</h2>
+                            <h2 className="text-2xl font-bold tracking-tight mb-4 flex items-center gap-2">
+                                Recent Work :
+                                <HoverImage
+                                    text="(You have to play with the mouse to navigate)"
+                                    src="https://www.reactbits.dev/assets/video/infinitemenu.webm"
+                                    alt="Mouse interaction demo"
+                                />
+                            </h2>
 
                             <div className='flex items-center justify-center'   >
-
                                 <div className="h-auto w-full bg-gray-100 dark:bg-gray-800 rounded-xl flex items-center justify-center overflow-hidden relative">
                                     <InfiniteMenu
                                         items={projectList.map(project => ({
