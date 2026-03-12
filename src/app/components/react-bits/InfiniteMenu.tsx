@@ -671,6 +671,12 @@ class InfiniteGridMenu {
                         const img = new Image();
                         img.crossOrigin = 'anonymous';
                         img.onload = () => resolve(img);
+                        img.onerror = () => {
+                            // Provide a 1x1 transparent image to avoid ctx.drawImage crashing
+                            const fallback = new Image();
+                            fallback.src = 'data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=';
+                            fallback.onload = () => resolve(fallback);
+                        };
                         img.src = item.image;
                     })
             )

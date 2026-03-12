@@ -35,7 +35,7 @@ export const projectList: Project[] = [
   },
   {
     name: 'prospect-finder',
-    image: 'https://loremflickr.com/800/600/search,business',
+    image: '/images/Automated prospect finding tool.jpg',
     technologies: 'TypeScript',
     summary: 'Automated prospect finding tool.',
     description: 'A tool designed to automate the process of finding prospects.',
@@ -46,7 +46,7 @@ export const projectList: Project[] = [
   },
   {
     name: 'ansible-loadbalancer-project',
-    image: 'https://loremflickr.com/800/600/server,cloud',
+    image: '/images/Ansible setup for load balancing.png',
     technologies: 'Shell, Ansible',
     summary: 'Ansible setup for load balancing.',
     description: 'A complete Ansible project for deploying a load balancer with multiple web servers.',
@@ -57,7 +57,7 @@ export const projectList: Project[] = [
   },
   {
     name: 'template-django-rest',
-    image: 'https://loremflickr.com/800/600/python,django',
+    image: '/images/Django REST framework template.jpg',
     technologies: 'Python, Django',
     summary: 'Django REST framework template.',
     description: 'A starter template for building RESTful APIs with Django.',
@@ -68,7 +68,7 @@ export const projectList: Project[] = [
   },
   {
     name: 'sepolia-testnet-voting-system',
-    image: 'https://loremflickr.com/800/600/blockchain,ethereum',
+    image: '/images/Voting system on Sepolia testnet.png',
     technologies: 'Solidity, Blockchain',
     summary: 'Voting system on Sepolia testnet.',
     description: 'A decentralized voting application deployed on the Sepolia Ethereum testnet.',
@@ -79,7 +79,7 @@ export const projectList: Project[] = [
   },
   {
     name: 'RouletteSimulator',
-    image: '/images/projects/RouletteSimulator.png',
+    image: '/images/A roulette simulation game.jpg',
     technologies: 'JavaScript',
     summary: 'A roulette simulation game.',
     description: 'Experience the thrill of the casino with this web-based Roulette simulator.',
@@ -90,7 +90,7 @@ export const projectList: Project[] = [
   },
   {
     name: 'front-lootopia',
-    image: '/images/projects/front-lootopia.png',
+    image: '/images/Frontend for Lootopia.jpg',
     technologies: 'TypeScript',
     summary: 'Frontend for Lootopia.',
     description: 'The frontend interface for the Lootopia project.',
@@ -101,7 +101,7 @@ export const projectList: Project[] = [
   },
   {
     name: 'nomad-nantes',
-    image: 'https://loremflickr.com/800/600/city,travel',
+    image: '/images/Nomad Nantes project.jpg',
     technologies: 'TypeScript',
     summary: 'Nomad Nantes project.',
     description: 'Nommaaaadd Nantes - A project dedicated to digital nomads in Nantes.',
@@ -112,7 +112,7 @@ export const projectList: Project[] = [
   },
   {
     name: 'NeoGuessr',
-    image: 'https://loremflickr.com/800/600/map,world',
+    image: '/images/GeoGuessr-like application.webp',
     technologies: 'TypeScript',
     summary: 'GeoGuessr-like application.',
     description: 'A web-based geography guessing game inspired by GeoGuessr.',
@@ -123,7 +123,7 @@ export const projectList: Project[] = [
   },
   {
     name: 'PokemonDLE',
-    image: '/images/projects/PokemonDLE.png',
+    image: '/images/Pokémon guessing game.jpg',
     technologies: 'TypeScript',
     summary: 'Pokémon guessing game.',
     description: 'A fast, modern Pokémon guessing game inspired by Wordle with fuzzy search and keyboard navigation.',
@@ -145,7 +145,7 @@ export const projectList: Project[] = [
   },
   {
     name: 'electronjs-demo',
-    image: 'https://loremflickr.com/800/600/code,screen',
+    image: '/images/Electron JS school project.jpg',
     technologies: 'Vue, Electron',
     summary: 'Electron JS school project.',
     description: 'A demonstration of Electron JS capabilities built during a school course.',
@@ -156,7 +156,7 @@ export const projectList: Project[] = [
   },
   {
     name: 'la-casa-chill-website',
-    image: 'https://loremflickr.com/800/600/house,relax',
+    image: 'https://picsum.photos/seed/casa/800/600',
     technologies: 'JavaScript',
     summary: 'La Casa Chill website.',
     description: 'Website for La Casa Chill.',
@@ -165,50 +165,6 @@ export const projectList: Project[] = [
     video: '',
     visible: true,
   },
-  {
-    name: 'Stickmania',
-    image: '/images/projects/Stickmania.png',
-    technologies: 'TypeScript',
-    summary: 'Wario Ware style game.',
-    description: 'Creation of a Wario Ware style game called Stickmania.',
-    repository: 'https://github.com/Potowai/Stickmania',
-    deployment: 'https://stickmania.netlify.app/',
-    video: '',
-    visible: true,
-  },
-  {
-    name: 'Communication-Iframe',
-    image: '/images/projects/Communication-Iframe.png',
-    technologies: 'TypeScript',
-    summary: 'Iframe communication demo.',
-    description: 'A demonstration of cross-origin iframe communication.',
-    repository: 'https://github.com/Potowai/Communication-Iframe',
-    deployment: 'https://communication-iframe-eta.vercel.app',
-    video: '',
-    visible: true,
-  },
-  {
-    name: 'SimpleFundMe',
-    image: 'https://loremflickr.com/800/600/money,crypto',
-    technologies: 'Solidity',
-    summary: 'Crowdfunding smart contract.',
-    description: 'A simple crowdfunding smart contract deployed on Ethereum.',
-    repository: 'https://github.com/Potowai/SimpleFundMe',
-    deployment: '',
-    video: '',
-    visible: true,
-  },
-  {
-    name: 'personal-media-server',
-    image: 'https://loremflickr.com/800/600/server,media',
-    technologies: 'Self-hosted',
-    summary: 'Personal media server guide.',
-    description: 'A complete guide to building your own personal self-hosted server for streaming and ad-blocking.',
-    repository: 'https://github.com/Potowai/Personal-Media-Server',
-    deployment: '',
-    video: '',
-    visible: true
-  }
 ];
 
 export default projectList;
