@@ -16,7 +16,13 @@ export default function HoverImage({ text, src, alt = "Hover image", className =
     const spanRef = useRef<HTMLSpanElement>(null);
 
     const handleMouseMove = (e: React.MouseEvent) => {
-        setMousePos({ x: e.clientX, y: e.clientY });
+        // Clamp position to keep popup within viewport
+        const POPUP_WIDTH = 192; // w-48 = 12rem ≈ 192px
+        const POPUP_HEIGHT = 128; // h-32 = 8rem ≈ 128px
+        const OFFSET = 16;
+        const x = Math.min(e.clientX, window.innerWidth - POPUP_WIDTH - OFFSET);
+        const y = Math.min(e.clientY, window.innerHeight - POPUP_HEIGHT - OFFSET);
+        setMousePos({ x: Math.max(OFFSET, x), y: Math.max(OFFSET, y) });
     };
 
     const isVideo = src.endsWith('.webm') || src.endsWith('.mp4');

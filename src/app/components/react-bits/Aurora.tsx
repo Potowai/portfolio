@@ -158,10 +158,19 @@ export default function Aurora(props: AuroraProps) {
             delete geometry.attributes.uv;
         }
 
-        const colorStopsArray = colorStops.map(hex => {
-            const c = new Color(hex);
-            return [c.r, c.g, c.b];
-        });
+        // Cache color values to avoid re-calculating every frame
+        let lastColorStops: string[] = [];
+        let cachedColorArray: number[][] = [];
+
+        const getColorArray = (stops: string[]) => {
+            if (stops === lastColorStops) return cachedColorArray;
+            lastColorStops = stops;
+            cachedColorArray = stops.map(hex => {
+                const c = new Color(hex);
+                return [c.r, c.g, c.b];
+            });
+            return cachedColorArray;
+        };
 
         program = new Program(gl, {
             vertex: VERT,
@@ -169,7 +178,7 @@ export default function Aurora(props: AuroraProps) {
             uniforms: {
                 uTime: { value: 0 },
                 uAmplitude: { value: amplitude },
-                uColorStops: { value: colorStopsArray },
+                uColorStops: { value: getColorArray(colorStops) },
                 uResolution: { value: [ctn.offsetWidth, ctn.offsetHeight] },
                 uBlend: { value: blend }
             }
@@ -182,14 +191,14 @@ export default function Aurora(props: AuroraProps) {
         const update = (t: number) => {
             animateId = requestAnimationFrame(update);
             const { time = t * 0.01, speed = 1.0 } = propsRef.current;
+            
             program.uniforms.uTime.value = time * speed * 0.1;
             program.uniforms.uAmplitude.value = propsRef.current.amplitude ?? 1.0;
             program.uniforms.uBlend.value = propsRef.current.blend ?? blend;
+            
             const stops = propsRef.current.colorStops ?? colorStops;
-            program.uniforms.uColorStops.value = stops.map((hex: string) => {
-                const c = new Color(hex);
-                return [c.r, c.g, c.b];
-            });
+            program.uniforms.uColorStops.value = getColorArray(stops);
+            
             renderer.render({ scene: mesh });
         };
         animateId = requestAnimationFrame(update);
@@ -199,13 +208,18 @@ export default function Aurora(props: AuroraProps) {
         return () => {
             cancelAnimationFrame(animateId);
             window.removeEventListener('resize', resize);
+            
             if (ctn && gl.canvas.parentNode === ctn) {
                 ctn.removeChild(gl.canvas);
             }
+
+            // Cleanup OGL resources
+            geometry.remove();
+            program.remove();
+            
             gl.getExtension('WEBGL_lose_context')?.loseContext();
         };
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [amplitude]);
+    }, [amplitude, blend, colorStops]);
 
     return <div ref={ctnDom} className="aurora-container" />;
 }

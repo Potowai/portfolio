@@ -181,7 +181,7 @@ export const LogoLoop = React.memo(
             if (hoverSpeed !== undefined) return hoverSpeed;
             if (pauseOnHover === true) return 0;
             if (pauseOnHover === false) return undefined;
-            return 0;
+            return undefined; // Default: animate normally
         }, [hoverSpeed, pauseOnHover]);
 
         const isVertical = direction === 'up' || direction === 'down';

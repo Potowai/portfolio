@@ -26,7 +26,7 @@ export default function HeroScene({ onLoaded }: HeroSceneProps) {
     useEffect(() => {
         const handleResize = () => {
             // Adjust scale based on container/window
-            setDuckScale(window.innerWidth > 768 ? 0.015 : 0.01); // Very small
+            setDuckScale(window.innerWidth > 768 ? 0.015 : 0.012); // Tiny on desktop, slightly larger on mobile
         };
         handleResize(); // Init
         window.addEventListener('resize', handleResize);

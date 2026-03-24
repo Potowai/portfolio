@@ -501,6 +501,8 @@ class InfiniteGridMenu {
     #deltaTime = 0;
     #deltaFrames = 0;
     #frames = 0;
+    #animateId = 0;
+    #disposed = false;
 
     gl: WebGL2RenderingContext | null = null;
     viewportSize: vec2 = vec2.create();
@@ -573,6 +575,7 @@ class InfiniteGridMenu {
     }
 
     run(time = 0) {
+        if (this.#disposed) return;
         this.#deltaTime = Math.min(32, time - this.#time);
         this.#time = time;
         this.#deltaFrames = this.#deltaTime / this.TARGET_FRAME_DURATION;
@@ -581,7 +584,27 @@ class InfiniteGridMenu {
         this.animate(this.#deltaTime);
         this.render();
 
-        requestAnimationFrame(t => this.run(t));
+        this.#animateId = requestAnimationFrame(t => this.run(t));
+    }
+
+    dispose() {
+        this.#disposed = true;
+        if (this.#animateId) {
+            cancelAnimationFrame(this.#animateId);
+        }
+
+        const gl = this.gl;
+        if (!gl) return;
+
+        // Cleanup WebGL resources
+        if (this.tex) gl.deleteTexture(this.tex);
+        if (this.discVAO) gl.deleteVertexArray(this.discVAO);
+        if (this.discProgram) gl.deleteProgram(this.discProgram);
+        if (this.discInstances?.buffer) gl.deleteBuffer(this.discInstances.buffer);
+
+        // Ideally we should keep track of all buffers created in makeVertexArray
+        // but losing the context is a reliable fallback for total cleanup
+        gl.getExtension('WEBGL_lose_context')?.loseContext();
     }
 
     init(onInit: ((sketch: InfiniteGridMenu) => void) | null) {
@@ -937,6 +960,9 @@ export default function InfiniteMenu({ items = [], scale = 1.0, onLoaded }: Infi
 
         return () => {
             window.removeEventListener('resize', handleResize);
+            if (sketch) {
+                sketch.dispose();
+            }
         };
     }, [items, scale, onLoaded]);
 
@@ -962,7 +988,7 @@ export default function InfiniteMenu({ items = [], scale = 1.0, onLoaded }: Infi
                 <>
                     <h2 className={`face-title ${isMoving ? 'inactive' : 'active'} text-white z-[100] absolute`}>{activeItem.title}</h2>
 
-                    <p className={`face-description ${isMoving ? 'inactive' : 'active'} text-white z-[100] absolute w-[20vw]!`}> {activeItem.description}</p>
+                    <p className={`face-description ${isMoving ? 'inactive' : 'active'} text-white z-[100] absolute`}> {activeItem.description}</p>
 
                     <div onClick={handleButtonClick} className={`action-button ${isMoving ? 'inactive' : 'active'} z-[100]`}>
                         <p className="action-button-icon text-white">&#x2197;</p>

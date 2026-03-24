@@ -39,6 +39,13 @@ export function Duck({ onToggleLight, duckRotation = [0, 0, 0], ...props }: Duck
         };
     }, [hovered]);
 
+    // Pre-load audio once
+    const squeakRef = useRef<HTMLAudioElement | null>(null);
+    useEffect(() => {
+        squeakRef.current = new Audio('/assets/sounds/squeak.mp3');
+        squeakRef.current.playbackRate = 1.35;
+    }, []);
+
     const handleClick = (e: ThreeEvent<MouseEvent>) => {
         e.stopPropagation();
 
@@ -47,10 +54,11 @@ export function Duck({ onToggleLight, duckRotation = [0, 0, 0], ...props }: Duck
 
         if (onToggleLight) onToggleLight();
 
-        // Play sound
-        const squeak = new Audio('/assets/sounds/squeak.mp3');
-        squeak.playbackRate = 1.35;
-        squeak.play().catch((err) => console.warn('Audio play failed', err));
+        // Play pre-loaded sound
+        if (squeakRef.current) {
+            squeakRef.current.currentTime = 0; // Reset to start
+            squeakRef.current.play().catch((err) => console.warn('Audio play failed', err));
+        }
     };
 
     return (

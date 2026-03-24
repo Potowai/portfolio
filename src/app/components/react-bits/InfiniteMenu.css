@@ -30,7 +30,7 @@
     user-select: none;
     position: absolute;
     font-weight: 900;
-    font-size: 3rem;
+    font-size: clamp(1.5rem, 4vw, 3rem);
     left: 5%;
     top: 40%;
     transform: translateY(-50%);
@@ -58,7 +58,7 @@
 .face-description {
     user-select: none;
     position: absolute;
-    width: 300px;
+    width: min(300px, 25vw);
     right: 5%;
     top: 50%;
     transform: translateY(-50%);
