@@ -3,17 +3,18 @@ import { useState, useEffect } from 'react';
 import BentoGrid from './components/grid/BentoGrid';
 import Tile from './components/grid/Tile';
 import HeroScene from './components/three/HeroScene';
-import { SiReact, SiNextdotjs, SiTypescript, SiTailwindcss, SiThreedotjs, SiGithub, SiLinkedin, SiAngular, SiSpringboot, SiMysql, SiPostgresql, SiMongodb, SiGit } from 'react-icons/si';
+import { SiReact, SiNextdotjs, SiTypescript, SiTailwindcss, SiThreedotjs, SiGithub, SiAngular, SiSpringboot, SiMysql, SiPostgresql, SiMongodb, SiGit } from 'react-icons/si';
+import { FaLinkedin } from 'react-icons/fa';
 import LogoLoop from './components/react-bits/LogoLoop';
 
 import Aurora from './components/react-bits/Aurora';
 import { textsInto } from './data/texts';
-import InfiniteMenu from './components/react-bits/InfiniteMenu';
-import { projectList } from './data/projects';
+import MagneticCards from './components/ui/MagneticCards';
 import SplashScreen from './components/ui/SplashScreen';
 
 import HoverImage from './components/ui/HoverImage';
 import EmailCopyButton from './components/ui/EmailCopyButton';
+import InvertedDotCursor from './components/ui/InvertedDotCursor';
 
 // Define color palettes (3 colors each)
 const PALETTES = [
@@ -48,9 +49,10 @@ export default function Home() {
     return (
         <main
             onClick={handleBackgroundClick}
-            className="min-h-screen bg-[#F8F9FA] dark:bg-[#111] text-black dark:text-white font-sans selection:bg-purple-200 dark:selection:bg-purple-900 relative cursor-pointer"
+            className="min-h-screen bg-[#F8F9FA] dark:bg-[#111] text-black dark:text-white font-sans selection:bg-purple-200 dark:selection:bg-purple-900 relative"
         >
             <SplashScreen isLoading={isLoading} />
+            <InvertedDotCursor />
             <div className="fixed inset-0 z-0 pointer-events-none">
                 <Aurora colorStops={PALETTES[paletteIndex]} speed={0.5} />
             </div>
@@ -113,7 +115,7 @@ export default function Home() {
                             </div>
                             <div className="flex gap-6 text-3xl">
                                 <a href="https://github.com/Potowai" target="_blank" rel="noopener noreferrer" className="hover:text-blue-500 transition-colors"><SiGithub /></a>
-                                <a href="https://www.linkedin.com/in/alexis-fiolleau/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-500 transition-colors"><SiLinkedin /></a>
+                                <a href="https://www.linkedin.com/in/alexis-fiolleau/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-500 transition-colors"><FaLinkedin /></a>
                                 <EmailCopyButton email="atelier-fiolleau@email.fr" />
                             </div>
                         </div>
@@ -125,22 +127,12 @@ export default function Home() {
                         <div className="p-8 h-full bg-white/50 dark:bg-black/30 backdrop-blur-md rounded-[24px]">
                             <h2 className="text-2xl font-bold tracking-tight mb-4 flex items-center gap-2">
                                 Recent Work :
-                                <HoverImage
-                                    text="(You have to play with the mouse to navigate)"
-                                    src="https://www.reactbits.dev/assets/video/infinitemenu.webm"
-                                    alt="Mouse interaction demo"
-                                />
+
                             </h2>
 
                             <div className='flex items-center justify-center'   >
-                                <div className="h-auto w-full bg-gray-100 dark:bg-gray-800 rounded-xl flex items-center justify-center overflow-hidden relative">
-                                    <InfiniteMenu
-                                        items={projectList.map(project => ({
-                                            image: project.image,
-                                            link: project.repository || project.deployment || '#',
-                                            title: project.name,
-                                            description: project.description
-                                        }))}
+                                <div className="w-full rounded-xl overflow-hidden relative">
+                                    <MagneticCards
                                         onLoaded={() => setLoadingMenu(false)}
                                     />
                                 </div>
