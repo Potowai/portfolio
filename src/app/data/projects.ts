@@ -35,7 +35,7 @@ export const projectList: Project[] = [
   },
   {
     name: 'prospect-finder',
-    image: '/images/Automated prospect finding tool.jpg',
+    image: '/images/Automated%20prospect%20finding%20tool.jpg',
     technologies: 'TypeScript',
     summary: 'Automated prospect finding tool.',
     description: 'A tool designed to automate the process of finding prospects.',
@@ -46,7 +46,7 @@ export const projectList: Project[] = [
   },
   {
     name: 'ansible-loadbalancer-project',
-    image: '/images/Ansible setup for load balancing.png',
+    image: '/images/Ansible%20setup%20for%20load%20balancing.png',
     technologies: 'Shell, Ansible',
     summary: 'Ansible setup for load balancing.',
     description: 'A complete Ansible project for deploying a load balancer with multiple web servers.',
@@ -57,7 +57,7 @@ export const projectList: Project[] = [
   },
   {
     name: 'template-django-rest',
-    image: '/images/Django REST framework template.jpg',
+    image: '/images/Django%20REST%20framework%20template.jpg',
     technologies: 'Python, Django',
     summary: 'Django REST framework template.',
     description: 'A starter template for building RESTful APIs with Django.',
@@ -68,7 +68,7 @@ export const projectList: Project[] = [
   },
   {
     name: 'sepolia-testnet-voting-system',
-    image: '/images/Voting system on Sepolia testnet.png',
+    image: '/images/Voting%20system%20on%20Sepolia%20testnet.png',
     technologies: 'Solidity, Blockchain',
     summary: 'Voting system on Sepolia testnet.',
     description: 'A decentralized voting application deployed on the Sepolia Ethereum testnet.',
@@ -79,7 +79,7 @@ export const projectList: Project[] = [
   },
   {
     name: 'RouletteSimulator',
-    image: '/images/A roulette simulation game.jpg',
+    image: '/images/projects/RouletteSimulator.png',
     technologies: 'JavaScript',
     summary: 'A roulette simulation game.',
     description: 'Experience the thrill of the casino with this web-based Roulette simulator.',
@@ -90,7 +90,7 @@ export const projectList: Project[] = [
   },
   {
     name: 'front-lootopia',
-    image: '/images/Frontend for Lootopia.jpg',
+    image: '/images/projects/front-lootopia.png',
     technologies: 'TypeScript',
     summary: 'Frontend for Lootopia.',
     description: 'The frontend interface for the Lootopia project.',
@@ -101,7 +101,7 @@ export const projectList: Project[] = [
   },
   {
     name: 'nomad-nantes',
-    image: '/images/Nomad Nantes project.jpg',
+    image: '/images/Nomad%20Nantes%20project.jpg',
     technologies: 'TypeScript',
     summary: 'Nomad Nantes project.',
     description: 'Nommaaaadd Nantes - A project dedicated to digital nomads in Nantes.',
@@ -112,7 +112,7 @@ export const projectList: Project[] = [
   },
   {
     name: 'NeoGuessr',
-    image: '/images/GeoGuessr-like application.webp',
+    image: '/images/GeoGuessr-like%20application.webp',
     technologies: 'TypeScript',
     summary: 'GeoGuessr-like application.',
     description: 'A web-based geography guessing game inspired by GeoGuessr.',
@@ -123,7 +123,7 @@ export const projectList: Project[] = [
   },
   {
     name: 'PokemonDLE',
-    image: '/images/Pokémon guessing game.jpg',
+    image: '/images/projects/PokemonDLE.png',
     technologies: 'TypeScript',
     summary: 'Pokémon guessing game.',
     description: 'A fast, modern Pokémon guessing game inspired by Wordle with fuzzy search and keyboard navigation.',
@@ -145,7 +145,7 @@ export const projectList: Project[] = [
   },
   {
     name: 'electronjs-demo',
-    image: '/images/Electron JS school project.jpg',
+    image: '/images/Electron%20JS%20school%20project.jpg',
     technologies: 'Vue, Electron',
     summary: 'Electron JS school project.',
     description: 'A demonstration of Electron JS capabilities built during a school course.',

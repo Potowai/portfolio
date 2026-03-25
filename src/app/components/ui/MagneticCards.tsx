@@ -90,11 +90,10 @@ function MagneticCard({ project }: MagneticCardProps) {
                 transformStyle: 'preserve-3d'
             }}
         >
-            {/* Background Image */}
             <div
                 className="absolute inset-0 bg-cover bg-center transition-transform duration-500"
                 style={{
-                    backgroundImage: `url(${project.image})`,
+                    backgroundImage: `url("${project.image}")`,
                     transform: isHovered ? 'scale(1.08)' : 'scale(1)'
                 }}
             />
